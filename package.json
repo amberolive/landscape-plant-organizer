@@ -42,5 +42,9 @@
   "engines": {
     "node": ">= 0.12.0"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "emberfire": "2.0.7",
+    "torii": "0.8.2"
+  }
 }

@@ -14,7 +14,23 @@ module.exports = function(environment) {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
-      }
+      },
+
+      firebase: {
+        apiKey: 'AIzaSyD1-6r_RBSs11g9T4dWZRSn965eCy-9GYw',
+        authDomain: 'plant-organizer.firebaseapp.com',
+        databaseURL: 'https://plant-organizer.firebaseio.com',
+        storageBucket: 'plant-organizer.appspot.com',
+      },
+
+
+      // if using ember-cli-content-security-policy
+      contentSecurityPolicy: {
+        'script-src': "'self' 'unsafe-eval' apis.google.com",
+        'frame-src': "'self' https://*.firebaseapp.com",
+        'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+      },
+
     },
 
     APP: {
