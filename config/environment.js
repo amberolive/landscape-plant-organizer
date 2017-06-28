@@ -23,6 +23,10 @@ module.exports = function(environment) {
         storageBucket: 'plant-organizer.appspot.com',
       },
 
+      torii: {
+        sessionServiceName: 'session'
+      },
+
 
       // if using ember-cli-content-security-policy
       contentSecurityPolicy: {

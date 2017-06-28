@@ -1,0 +1,23 @@
+<div class="login-form">
+  <div class="ui two column centered grid">
+    <div class="four column centered row">
+      <div class="column">
+        <form class="ui form {{if displayError "error" ""}}">
+          <div class="ui error message">
+            <div class="header">Login Failed:</div>
+            <p>Invalid username and/or password.</p>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="Email">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" placeholder="Password">
+          </div>
+          <button {{action "login"}} class="ui button" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
