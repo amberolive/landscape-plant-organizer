@@ -9,6 +9,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login', function() {});
   this.route('forgot');
+  this.route('create-plant');
+  this.route('beds');
+  this.route('bed-input');
+  this.route('bed-list');
 });
 
 export default Router;
