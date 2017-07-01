@@ -11,6 +11,10 @@ export default Ember.Component.extend({
 
     getSubBeds(bed) {
       this.get('bedService').getSubBeds(bed);
+    },
+
+    addBed(bedName) {
+      this.get('bedService').addBed(bedName);
     }
   }
 });
