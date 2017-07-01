@@ -19,6 +19,35 @@
       </div>
     </div>
     <div class="fields">
+      {{#ui-dropdown class="fluid selection" selected=beds onChange=(action (mut beds))}}
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Bed</div>
+        <div class="menu">
+          {{#each model.beds as |bed|}}
+            <div class="item" value={{bed.name}} {{action 'getSubBeds' bed}}>
+              {{bed.name}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+      <div class="field">
+        {{input value=quantity type="number" placeholder="Quantity"}}
+      </div>
+    </div>
+    <div class="fields">
+      {{#ui-dropdown class="fluid multiple selection" selected=subBeds onChange=(action (mut subBeds))}}
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Sub Bed(s)</div>
+        <div class="menu">
+          {{#each bedService.subBedsForSelectedBed as |subBed|}}
+            <div class="item" value={{subBed.name}}>
+              {{subBed.name}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+    </div>
+    <div class="fields">
       <div class="field">
         <label>Fertilization Comments</label>
         {{textarea value=fertilizationComments }}
