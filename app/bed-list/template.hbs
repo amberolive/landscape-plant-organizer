@@ -1,2 +1,18 @@
 {{nav-bar beds=true}}
 {{bed-side-bar bedList=true}}
+
+<div class="ui centered grid">
+  <div class="six wide column">
+    {{#each model.beds as |bed|}}
+      <div class="row">
+        <div class="ui vertical fluid menu">
+          <div class="header item"><a>{{bed.name}}</a></div>
+          {{#each bed.subBeds as |subBed|}}
+            <div class="item"><a>{{subBed.name}}</a></div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="row"><br></div>
+    {{/each}}
+  </div>
+</div>
