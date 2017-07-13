@@ -4,7 +4,11 @@
         <label>Bed Name</label>
         {{input value=bedName type="text" placeholder="Bed Name"}}
       </div>
-      {{#each bedService.subBeds as |subBed|}}
+      <div class="field">
+        <label>Sub Bed Name</label>
+        {{input value=subBedName type="text" placeholder="Sub Bed Name" }}
+      </div>
+      {{#each bedService.subBedsToAdd as |subBed|}}
         <div class="field">
           <label>Sub Bed Name</label>
           {{input value=subBed.name type="text" placeholder="Sub Bed Name"}}

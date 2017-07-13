@@ -24,7 +24,7 @@ export default Ember.Service.extend({
     var bed = store.createRecord('bed', {
       name: bedName
     });
-    this.get('subBeds').forEach(function(subBed) {
+    this.get('subBedsToAdd').forEach(function(subBed) {
       var newSubBed = store.createRecord('subBed', {
         name: subBed.get('name'),
       });
@@ -32,6 +32,7 @@ export default Ember.Service.extend({
       newSubBed.save();
     });
     bed.save();
+    this.get('subBedsToAdd').clear();
   },
 
   getSubBeds(bed) {

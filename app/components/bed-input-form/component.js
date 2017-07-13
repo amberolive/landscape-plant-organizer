@@ -7,12 +7,16 @@ export default Ember.Component.extend({
   actions: {
     addSubBed() {
       var name = this.get('subBedName');
+      this.set('subBedName', '');
       this.get('bedService').addSubBed(name);
     },
 
-    createBed(bedName) {
-      var bedName = this.get('bedName');
-      this.get('bedService').createBed(bedName);
+    createBed() {
+      if(this.get('subBedName') !== '') {
+        this.send('addSubBed', this.get('subBedName'));
+      }
+      this.get('bedService').createBed(this.get('bedName'));
+      this.set('bedName', '');
     }
   }
 
