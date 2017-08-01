@@ -15,8 +15,8 @@ export default Ember.Service.extend({
     this.get('subBedsToAdd').pushObject(Ember.Object.create({name: name}));
   },
 
-  addBed(name) {
-    this.get('bedsToAdd').pushObject(Ember.Object.create({name: name}));
+  addBed(bed) {
+    this.get('bedsToAdd').pushObject(bed);
   },
 
   createBed(bedName) {

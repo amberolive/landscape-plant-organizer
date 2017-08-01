@@ -6,15 +6,17 @@ export default Ember.Component.extend({
 
   actions: {
     createPlant() {
-      this.sendAction('createPlant', this.get('commonName'), this.get('genus'), this.get('species'), this.get('trinimial'), this.get('fertilizationComments'), this.get('months'));
+      this.send('addBed');
+      let beds = this.get('bedService').get('bedsToAdd');
+      this.sendAction('createPlant', this.get('commonName'), this.get('genus'), this.get('species'), this.get('trinimial'), this.get('fertilizationComments'), this.get('monthsToAdd'), beds);
     },
 
     getSubBeds(bed) {
       this.get('bedService').getSubBeds(bed);
     },
 
-    addBed(bedName) {
-      this.get('bedService').addBed(bedName);
+    addBed() {
+      this.get('bedService').addBed(this.get('subBed'));
     }
   }
 });

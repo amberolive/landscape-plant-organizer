@@ -12,4 +12,5 @@ export default DS.Model.extend({
   endBloomTime: DS.attr('date'),
   website: DS.attr('string'),
   comments: DS.attr('string'),
+  beds: DS.hasMany('sub-bed', {async: true, inverse: null}),
 });
