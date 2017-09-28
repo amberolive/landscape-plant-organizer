@@ -17,7 +17,6 @@ export default Ember.Route.extend({
 
   actions: {
     createPlant(commonName, genus, species, trinimial, fertilizationComments, months, beds) {
-      debugger;
       var store = this.store;
       var fertilization = store.createRecord('fertilization', {
         comments: fertilizationComments
@@ -37,7 +36,6 @@ export default Ember.Route.extend({
         fertilization: fertilization,
         beds: beds,
       });
-      debugger;
       fertilization.save().then(function() {
         plant.save();
       });

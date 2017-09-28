@@ -8,7 +8,6 @@ export default Ember.Component.extend({
 
   actions: {
     addSubBed(subBed) {
-      debugger;
       //this.get('bedService').addBed(this.get('subBedsToAdd'));
       this.sendAction("action", subBed);
     }

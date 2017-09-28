@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('beds');
   this.route('bed-input');
   this.route('bed-list');
+  this.route('plant-list');
 });
 
 export default Router;
