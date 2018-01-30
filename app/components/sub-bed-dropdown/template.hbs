@@ -1,0 +1,11 @@
+{{#ui-dropdown class="fluid selection" selected=subBedsToAdd onChange=(action (mut subBedsToAdd)) as |execute mapper|}}
+  <i class="dropdown icon"></i>
+  <div class="default text">Select Sub Bed(s)</div>
+  <div class="menu">
+    {{#each model.subBeds as |subBed|}}
+      <div class="item" data-value="{{map-value mapper subBed}}" {{action "addSubBed" subBed}}>
+        {{subBed.name}}
+      </div>
+    {{/each}}
+  </div>
+{{/ui-dropdown}}

@@ -1,0 +1,21 @@
+<div class="ui grid">
+  <div class="ui form">
+      <div class="required field">
+        <label>Bed Name</label>
+        {{input value=bedName type="text" placeholder="Bed Name"}}
+      </div>
+      <div class="field">
+        <label>Sub Bed Name</label>
+        {{input value=subBedName type="text" placeholder="Sub Bed Name" }}
+      </div>
+      {{#each bedService.subBedsToAdd as |subBed|}}
+        <div class="field">
+          <label>Sub Bed Name</label>
+          {{input value=subBed.name type="text" placeholder="Sub Bed Name"}}
+        </div>
+        <br>
+      {{/each}}
+    <button class="ui labeled icon button" type="submit" {{action "createBed"}}><i class="save icon"></i>Create Bed</button>
+    <button class="ui labeled icon button" {{action "addSubBed"}}><i class="add icon"></i>Add Sub Bed</button>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="field">
+  <label>Month(s)</label>
+  {{#ui-dropdown class="fluid multiple selection" selected=months onChange=(action (mut months))}}
+    <i class="dropdown icon"></i>
+    <div class="default text">Select Month(s)</div>
+    <div class="menu">
+        <div class="item" data-value="1">January</div>
+        <div class="item" data-value="2">February</div>
+        <div class="item" data-value="3">March</div>
+        <div class="item" data-value="4">April</div>
+        <div class="item" data-value="5">May</div>
+        <div class="item" data-value="6">June</div>
+        <div class="item" data-value="7">July</div>
+        <div class="item" data-value="8">August</div>
+        <div class="item" data-value="9">September</div>
+        <div class="item" data-value="10">October</div>
+        <div class="item" data-value="11">November</div>
+        <div class="item" data-value="12">December</div>
+    </div>
+  {{/ui-dropdown}}
+</div>

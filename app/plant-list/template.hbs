@@ -1,0 +1,25 @@
+{{nav-bar beds=true}}
+<div class="ui four column grid">
+  <div class="left floated two wide column">
+  </div>
+  <div class="twelve wide column">
+    <div class="ui three column grid">
+      <div class="two wide column"/>
+      <div class="eight wide column">
+        {{#each model.plants as |plant|}}
+          <div class="row">
+            <div class="ui vertical fluid menu">
+              <div class="header item"><a>{{plant.name}}</a></div>
+              {{#each plant.subBeds as |subBed|}}
+                <div class="item"><a>{{subBed.name}}</a></div>
+              {{/each}}
+              <div class="item"><a>{{plant.fertilization}}</a></div>
+            </div>
+          </div>
+          <div class="row"><br></div>
+        {{/each}}
+      </div>
+      <div class="six wide column"/>
+    </div>
+  </div>
+</div>

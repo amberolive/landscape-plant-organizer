@@ -1,0 +1,121 @@
+<div class="ui centered grid container">
+  <div class="ui form">
+    <div class="fields">
+      <div class="required field">
+        <label>Common Name</label>
+        {{input value=commonName type="text" placeholder="Common Name"}}
+      </div>
+      <div class="field">
+        <label>Genus</label>
+        {{input value=genus type="text" placeholder="Genus"}}
+      </div>
+      <div class="field">
+        <label>Species</label>
+        {{input value=species type="text" placeholder="Species"}}
+      </div>
+      <div class="field">
+        <label>Trinimial</label>
+        {{input value=trinimial type="text" placeholder="Trinimial"}}
+      </div>
+    </div>
+
+    <div></div>
+      <div class="field">
+        <label>Website</label>
+        {{input value=website type="text" placeholder="Website"}}
+      </div>
+
+    <div class="fields">
+      {{#ui-dropdown class="fluid selection" selected=bedsToAdd onChange=(action (mut beds)) as |execute mapper|}}
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Bed</div>
+        <div class="menu">
+          {{#each model.beds as |bed|}}
+            <div class="item" data-value="{{map-value mapper bed}}">
+              {{bed.name}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+    </div>
+    <div class="fields">
+      <div class="field">
+      {{sub-bed-dropdown model=beds action="addSubBed"}}
+    </div>
+      <div class="field">
+        {{input value='{{quantity}}' type="number" placeholder="Quantity"}}
+      </div>
+    </div>
+
+    {{#each bedService.bedsToAdd as |bedToAdd|}}
+      <div class="fields">
+        {{#ui-dropdown class="fluid selection" selected=bedsToAdd onChange=(action (mut beds)) as |execute mapper|}}
+          <i class="dropdown icon"></i>
+          <div class="default text">Select Bed</div>
+          <div class="menu">
+            {{#each model.beds as |bed|}}
+              <div class="item" data-value="{{map-value mapper bed}}">
+                {{bed.name}}
+              </div>
+            {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+      <div class="fields">
+        <div class="field">
+        {{sub-bed-dropdown model=beds action="addSubBed"}}
+      </div>
+        <div class="field">
+          {{input value='{{quantity}}' type="number" placeholder="Quantity"}}
+        </div>
+      </div>
+    {{/each}}
+
+    <button class="ui labeled icon button" {{action "addBed"}}><i class="add icon"></i>Add Bed</button>
+
+      <div class="field">
+        <label>Comments</label>
+        {{textarea value=comments}}
+      </div>
+
+    <div class="fields">
+      <div class="field">
+        <label>Fertilization Comments</label>
+        {{textarea value=fertilizationComments }}
+      </div>
+      <div class="field">
+        <label>Month(s)</label>
+        {{#ui-dropdown class="fluid multiple selection" selected=months onChange=(action (mut monthsToAdd))}}
+          <i class="dropdown icon"></i>
+          <div class="default text">Select Month(s)</div>
+          <div class="menu">
+              <div class="item" data-value="1">January</div>
+              <div class="item" data-value="2">February</div>
+              <div class="item" data-value="3">March</div>
+              <div class="item" data-value="4">April</div>
+              <div class="item" data-value="5">May</div>
+              <div class="item" data-value="6">June</div>
+              <div class="item" data-value="7">July</div>
+              <div class="item" data-value="8">August</div>
+              <div class="item" data-value="9">September</div>
+              <div class="item" data-value="10">October</div>
+              <div class="item" data-value="11">November</div>
+              <div class="item" data-value="12">December</div>
+          </div>
+        {{/ui-dropdown}}
+      </div>
+    </div>
+    <button class="ui labeled icon button" type="submit" {{action "createPlant"}}><i class="save icon"></i>Create Plant</button>
+  </div>
+    <div class="three column row">
+      <div class="column">
+        <button class="ui labeled icon button" {{action "previousPlant"}}><i class="left arrow icon"/>Previous Plant</button>
+      </div>
+      <div class="column">
+        <button class="ui labeled icon button" {{action "nextPlant"}}><i class="right arrow icon"/>Next Plant</button>
+      </div>
+      <div class="column">
+        <button class="ui labeled icon button" {{action "newPlant"}}>New Plant</button>
+      </div>
+    </div>
+</div>
